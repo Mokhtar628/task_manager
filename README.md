@@ -1,6 +1,6 @@
-# 📱 Task Manager App
+# Task Manager App - Clean Architecture & Unit Testing
 
-A modern, efficient, and user-friendly Task Manager application designed for productivity. It allows users to manage their daily tasks and optimize their time.
+This Task Manager app is built with an emphasis on **Clean Architecture**, **Mocking**, and **Unit Testing** using **Design Patterns** like **Singleton** and **Dependency Injection**. The project was developed in **10 hours** to demonstrate software development best practices.
 
 ---
 
@@ -21,33 +21,35 @@ A modern, efficient, and user-friendly Task Manager application designed for pro
 
 ## 🚀 Introduction
 
-This Task Manager app helps you to efficiently organize your tasks, set priorities, and track progress. It features user authentication, task management, and pagination.
+This Task Manager app demonstrates the principles of **Clean Architecture**, enabling scalable, maintainable, and testable code. The app emphasizes unit testing using **mocking techniques** and ensures optimal software design using **design patterns** like Singleton and Dependency Injection.
 
 ---
 
 ## 🎯 Features
 
-- **User Authentication:** Users can sign in and manage tasks.
-- **Task Management:** CRUD operations for tasks.
-- **Responsive UI:** Great performance across devices.
-- **Animations:** Smooth page transitions and custom animation effects.
+- **Clean Architecture:** Structuring the app into clear, separable layers for easy maintenance and extension.
+- **Unit Testing:** Comprehensive unit testing for CRUD operations.
+- **Design Patterns:** Use of Singleton and Dependency Injection for better code reusability and easier management of dependencies.
+- **Task Management:** Basic CRUD functionalities for tasks.
+- **Authentication:** Login system implemented following clean architecture principles.
+- **Filteration:** You can filter the tasks based on the status.
 
 ---
 
 ## 🛠️ Installation
 
-To run the app locally, follow these steps:
+Follow these steps to get the app up and running locally:
 
 1. Clone this repository:
 
     ```bash
-    git clone https://github.com/YOUR_USERNAME/your-repo-name.git
+    git clone https://github.com/Mokhtar628/task_manager
     ```
 
 2. Navigate to the project folder:
 
     ```bash
-    cd your-repo-name
+    cd task_manager
     ```
 
 3. Install dependencies:
@@ -62,57 +64,83 @@ To run the app locally, follow these steps:
     flutter run
     ```
 
+5. test the app:
+
+    ```bash
+    flutter test
+    ```
+
 ---
 
 ## 🧑‍💻 Usage
 
-1. Open the app on your simulator/emulator or real device.
-2. Sign in using valid credentials.
-3. Start adding tasks with deadlines and priorities.
-4. Use the task manager interface to edit or remove tasks.
+1. Launch the app on your simulator, emulator, or real device.
+2. You can perform basic task management functions like creating, updating, and deleting tasks.
+3. The login feature allows users to authenticate and access their tasks.
+4. Filter the tasks based on thier status.
 
 ---
 
 ## 💡 Design Decisions
 
-- **State Management:** I chose `Provider` for clean state management across the app. It helps maintain a simple, understandable structure for managing app state.
-- **UI/UX:** The user interface follows a minimalistic design philosophy, using rich animations for smooth navigation and an immersive user experience.
-- **Animations:** Used the `AnimatedBuilder` and `FadeTransition` to animate form fields and buttons for a smooth, polished feel.
-- **Responsiveness:** Made sure the app is responsive on both small and large screens using `MediaQuery` and flexible widgets.
+- **Clean Architecture**: I chose Clean Architecture to ensure separation of concerns. The app is divided into layers:
+ lib/
+├── core/
+├── features/
+│   ├── auth/                      # Authentication feature
+│   │   ├── data/                  # Data layer (models, data sources, repositories)
+│   │   ├── domain/                # Domain layer (entities, use cases, repositories interface)
+│   │   ├── presentation/          # Presentation layer (UI, providers, screens)
+│   │   └── injection/             # Dependency Injection (DI) for auth
+│   ├── tasks/                     # Task Management feature
+│   │   ├── data/                  # Data layer (models, data sources, repositories)
+│   │   ├── domain/                # Domain layer (entities, use cases,  repositories interface)
+│   │   ├── presentation/          # Presentation layer (UI, providers, screens)
+│   │   └── injection/             # Dependency Injection (DI) for tasks
+├── app.dart                       # Root widget that ties everything together
+└── main.dart                      # Entry point for the application
+
+  This promotes testability and flexibility in modifying the application as needed.
+
+- **Design Patterns**:
+  - **Singleton**: Used for managing app-wide state and global dependencies in a centralized way.
+  - **Dependency Injection**: Used to inject dependencies into classes rather than having them created inside the classes, ensuring easier testing and mocking.
+  
+- **Testing**: Mocking dependencies using the `mockito` library enabled isolated unit testing of business logic.
 
 ---
 
 ## 🚧 Challenges Faced
 
-1. **User Authentication:** Handling asynchronous login states and ensuring smooth error handling was challenging. To address this, I implemented loading indicators while the login process is running.
-2. **Animations Performance:** Optimizing custom animations so they don’t affect performance, especially on lower-end devices.
-3. **Task CRUD Operations:** Setting up efficient error handling and form validation.
+1. **Mocking**: Properly mocking the task repository while testing.
+2. **Maintaining Code Quality**: Focusing on clean architecture and testing meant balancing development speed with adhering to software design principles.
 
 ---
 
 ## ✨ Extra Features
 
-- **Forgot Password functionality:** Users can recover their accounts if they forget their password.
-- **Pagination:** Tasks are paginated for improved performance and user experience.
-- **Animated Transitions:** Smoother UI transitions to make the app more engaging.
+- **Design Pattern Implementation**: Incorporating Singleton and Dependency Injection throughout the app ensures easy maintainability and scalability.
 
 ---
 
 ## 👨‍💻 Contributing
 
-We welcome contributions! If you'd like to contribute to this project:
+Contributions are welcome! If you’d like to contribute to this project:
 
 1. Fork the repository.
-2. Create a new branch.
-3. Make your changes.
-4. Submit a pull request.
+2. Create a new branch (`git checkout -b feature-name`).
+3. Make changes and commit them (`git commit -am 'Added new feature'`).
+4. Push to the branch (`git push origin feature-name`).
+5. Submit a pull request.
 
 
 ---
 
 ## 🎉 Acknowledgments
 
-- Flutter - for providing an excellent framework for building apps.
-- Provider - for managing the app state.
-- Icon Library by [Icons8](https://icons8.com/icons).
-- [Unsplash](https://unsplash.com) for the free-to-use images in the project.
+- Flutter, for enabling the rapid development of clean architecture apps.
+- `Mockito` for allowing effective unit testing with mocks.
+- Clean Architecture pattern, for promoting testable and scalable applications.
+
+---
+
