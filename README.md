@@ -84,7 +84,9 @@ Follow these steps to get the app up and running locally:
 ## 💡 Design Decisions
 
 - **Clean Architecture**: I chose Clean Architecture to ensure separation of concerns. The app is divided into layers:
- lib/
+
+```
+lib/
 ├── core/
 ├── features/
 │   ├── auth/                      # Authentication feature
@@ -99,6 +101,8 @@ Follow these steps to get the app up and running locally:
 │   │   └── injection/             # Dependency Injection (DI) for tasks
 ├── app.dart                       # Root widget that ties everything together
 └── main.dart                      # Entry point for the application
+```
+
 
   This promotes testability and flexibility in modifying the application as needed.
 
